@@ -1,0 +1,662 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+/** Rend plus facile les dimensions des boites **/
+
+/** PropriÃ©tÃ©es a utiliser plus tard dans le document css (variables a utiliser)*/
+html{
+    scroll-behavior: smooth;
+    /*Ameliore le scroll pour un meilleur rendu visuel et naturel.*/
+}
+:root{
+   --font-family-primary: 'Source Sans Pro', sans-serif;
+   --font-family-secondary:'Source Code Pro', monospace; /*Police qui ressemble a des lignes de codes*/
+
+   /* Determine le poids des police en gras*/
+   --fw-reg: 300;
+   --fw-bold: 900;
+
+    /* Principales couleurs utilisÃ© dans le document*/
+   --clr-light: #fff;
+   --clr-dark: #303030;
+   --clr-purple: #AFA4CE;
+
+   /*Taille des titres*/
+   --fs-h1: 3rem;
+   --fs-h2: 2.25rem;
+   --fs-h3: 1.25rem;
+   --fs-body: 1rem;
+
+   /* Ombre portÃ©e d'un Ã©lÃ©ment (img ou boite)*/
+   --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25);
+}
+
+/*Taille de police Ã  utiliser dans le fichier*/
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+section{
+    padding: 4em 1em;
+    /* Ne touche pas les cotÃ©s de l'Ã©cran pour un meilleur affichage sur appareil portable*/
+}
+
+/* Styles*/
+body{
+    background: var(--clr-light);
+    color: var(--clr-dark);
+
+    margin: 0;
+
+    font-size: var(--fs-body);
+    font-family: var(--font-family-primary);
+    
+    line-height: 1.6;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+strong { font-weight: var(--fw-bold) }
+
+/* Titres*/
+.l{
+    font-family: var(--font-family-secondary);
+    position: relative;
+    right : 0px;
+}
+h1,h2,h3{
+    line-height:1.1;
+    margin :0;
+}
+
+h1{
+    font-size: var(--fs-h1);
+}
+
+h2{
+    font-size: var(--fs-h2);
+}
+
+h3{
+    font-size: var(--fs-h3);
+}
+
+.Titre_section{
+    margin-bottom: .25em;
+}
+
+.Intro_Titre{
+    font-weight: var(--fw-reg);
+    font-size:50px;
+}
+
+.Intro_Titre strong{
+    display: block;
+    /* Saut a la ligne*/
+}
+.section_paragraphe{
+    margin:0;
+    font-size: var(--fs-h3)
+}
+
+
+.about_para, .section_intro{
+    background: var(--clr-purple);
+    padding: .25em 1em;
+    font-family: var(--font-family-secondary); /*Police qui ressemble a des lignes de codes*/
+    margin-bottom: 1em;
+}
+
+/* header*/
+header{
+    display:flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+.logo{
+    max-width: 100px;
+}
+
+/*Menu*/
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+   --font-family-primary: 'Source Sans Pro', sans-serif;
+   --font-family-secondary:'Source Code Pro', monospace;
+   --fw-reg: 300;
+   --fw-bold: 900;
+   --clr-light: #fff;
+   --clr-dark: #303030;
+   --clr-purple: #AFA4CE;
+   --fs-h1: 3rem;
+   --fs-h2: 2.25rem;
+   --fs-h3: 1.25rem;
+   --fs-body: 1rem;
+   --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25);
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+body{
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-size: var(--fs-body);
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+/* Menu */
+.nav{
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 250ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-open .nav{
+    transform: translateX(0);
+}
+
+.navigation_liste{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.nav a{
+    color: var(--clr-light);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+    transition: color 200ms ease-in-out;
+}
+
+.nav a:hover{
+    color: var(--clr-purple);
+}
+
+.nav-toggle {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.nav-toggle .button-style{
+    display: block;
+    width: 2em;
+    height: 3px;
+    background: var(--clr-purple);
+    position: relative;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.nav-toggle .button-style::before,
+.nav-toggle .button-style::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2em;
+    height: 3px;
+    background: var(--clr-purple);
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.nav-toggle .button-style::before { top: -8px; }
+.nav-toggle .button-style::after { top: 8px; }
+
+.nav-open .button-style {
+    transform: rotate(45deg);
+}
+
+.nav-open .button-style::before {
+    transform: rotate(90deg) translateX(6px);
+}
+
+.nav-open .button-style::after {
+    opacity: 0;
+}
+
+
+/* Introduction*/
+.intro_img {
+    box-shadow: var(--bs); /*Ajoute ombre*/
+}
+
+.intro{
+    position: relative;
+}
+
+@media (min-width: 600px){ /*Effet superposÃ© boite + Image*/
+    .intro{
+        margin : 0 auto;
+        display: grid;
+        width: min-content;
+        grid-column-gap: 1em;
+        grid-template-areas: 
+        "img titre"
+        "img sous-titre";
+        grid-template-columns: min-content max-content;
+    }
+
+    .intro_img{
+        grid-area: img;
+        min-width: 300px;
+        position: relative;                                             
+        z-index: 2;
+    }
+
+    .section_intro{
+        align-self: start;
+        grid-column: -1/ 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+}
+
+
+
+
+/*Boutton*/
+/*L'objectif est d'avoir une icone de 3 petits traits qui ouvrira le menu */
+.button-style{
+    display:block;
+    position: relative;
+}
+
+.button-style,
+.button-style::before,
+.button-style::after{
+    background: var(--clr-purple);
+    width:2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.button-style::before,
+.button-style::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.button-style::before { top: 6px; }
+.button-style::after { bottom: 6px; }
+
+
+
+
+/* Skills/CompÃ©tences section*/
+
+.my-skills{
+    background-color: var(--clr-dark);
+    background-image: url(img/image_ordi.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    color: var(--clr-light)
+}
+
+.my-skills2{
+    background-color: var(--clr-dark);
+    background-image: url(img/img_ordi.jpeg);
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    color: var(--clr-light);
+}
+
+.my-skills3{
+    background-color: var(--clr-dark);
+    background-image: url(img/diplome.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    color: var(--clr-light);
+}
+
+
+.skills_titre{
+    color: var(--clr-purple);
+    text-align: center;}
+
+.skills_titre::after{
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    margin : 8px auto 1em;
+    background: var(--clr-purple);
+}
+
+.skills {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    /*Pour tout le texte des compÃ©tences*/
+    .skills {
+        display: line;
+        
+    }
+
+    .skill{
+        text-align: center;
+        list-style-type: none;
+   
+    }
+}
+
+/*Bouton (Mes travaux) */
+.btn{
+    position: absolute;
+    align-self: top;
+    display: inline-block;
+    padding: .5em 1.5em;
+    background: var(--clr-purple);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/*Section a propos*/
+.about-me{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.about_img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+    
+    .about_titre {
+        grid-area: title;
+    }
+    
+    .about_para {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left: 1em;
+        padding-right: calc(200px + 4em);
+    }
+    
+    .about_img {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+/*Portfolio (mes travaux)*/
+.my-work{
+    background-color: var(--clr-dark);
+    color : var(--clr-light);
+    text-align: center;
+}
+
+.my-workp{
+    background-color: #d1c6ee;
+    color : var(--clr-light);
+    text-align: center;
+}
+
+.pt{
+    color: var(--clr-purple);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+}
+
+.portfolio{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio__item {
+   background-color: #AFA4CE;
+   overflow: hidden;
+   display: inline-block;
+    position: relative;
+}
+
+.portfolio__img {
+ 
+    transition: 
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        opacity 250ms linear;
+        
+}
+
+.portfolio__img:hover {
+    transform: scale(1.2);
+    opacity: .100;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    text-align : bottom;
+
+}
+
+
+.overlay p {
+    font-family: var(--font-family-secondary);
+    color: #ccc7d6;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.portfolio__item:hover .overlay {
+    opacity: 3;
+}
+/*Footer*/
+.footer{
+    background: #111;
+    color : var(--clr-purple);
+    text-align: center;
+    padding: 2.5em 0;
+}
+.social-link{
+
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+.footer a {
+    color : var(--clr-purple);
+    text-decoration: #AFA4CE;
+}
+
+.footer a:hover{
+    opacity: .7;
+}
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.f_img{
+    fill: red;
+}
+
+.social-link__item{
+    margin: 0 .5em;
+}
+
+/*PORTFOLIO PROJET ECT PAGES*/
+.portfolio-item-individual{
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faa{
+    float: left;
+    display: block;
+    text-align: center;
+}
+table{
+    text-align: center;
+}
+
+
+
+
+
+
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 images par ligne */
+    gap: 10px; /* Espacement entre les images */
+    margin: 0 auto;
+    max-width: 80%; /* Ajustez la largeur du container */
+  }
+  
+  .image-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Garder l'image proportionnelle sans la déformer */
+  }
+
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: justify;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+strong {
+    font-weight: bold;
+}
+
+
+.imgpulso{
+    text-align: center;
+    img {
+        display: block;
+        width: 30%;
+        margin: auto;
+      }
+}
