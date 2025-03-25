@@ -1,5 +1,13 @@
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
-*.zip filter=lfs diff=lfs merge=lfs -text
+# Traiter tous les fichiers comme du texte, et gérer les fins de ligne automatiquement
 * text=auto
+
+# Spécifier les types de fichiers à traiter de manière spécifique
+# Par exemple, pour les fichiers binaires comme les images :
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.bmp binary
+*.svg binary
+*.webp binary
+*.tiff binary
